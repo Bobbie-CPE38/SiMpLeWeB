@@ -1,0 +1,126 @@
+/* *Menu */
+.menu{
+    z-index: 2;
+    position: fixed;
+    top: 50vh;
+    right: 40px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--black);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    overflow: hidden;
+}
+.menu-inner{
+    display: none;
+}
+.menu-inner a{
+    position: relative;
+    text-decoration: none;
+    color: var(--white);
+    padding: 1rem;
+}
+.menu-inner a::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background: var(--bright-orange);
+    transition: .2s ease-in-out;
+}
+.menu-inner a:hover::before{
+    height: 4px;
+    width: 160%;
+}
+.menu.isopen{
+    border: 2px solid var(--white);
+    border-radius: 0;
+    animation: expandWidth .2s forwards, expandHeight .2s .2s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu.isopen .menu-inner{
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+}
+.menu.isclose{
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--white);
+    border-radius: 0;
+    right: 0;
+    animation: collapseHeight .2s forwards, collapseWidth .2s .2s forwards;
+}
+.menu-btn{
+    position: fixed;
+    top: 50vh;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    z-index: 3;
+    transform: translateY(-50%);
+}
+.menu-btn span{
+    background: var(--white);
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+}
+.menu-btn span:nth-child(1){
+    transform: translate(-50%, -4px);
+    transition: .2s ease-in-out;
+}
+.menu-btn span:nth-child(2){
+    transform: translate(-50%, 4px);
+    transition: .2s ease-in-out;
+}
+.menu-btn:hover{
+    cursor: pointer;
+}
+.menu-btn.isopen span:nth-child(1){
+    transform: translate(-50%, 0) rotate(45deg);
+}
+.menu-btn.isopen span:nth-child(2){
+    transform: translate(-50%, 0) rotate(-45deg);
+}
+@keyframes expandWidth {
+    from{
+        width: 50px;
+        right: 40px;
+    }to{
+        width: 100%;
+        right: 0;
+    }
+}
+@keyframes expandHeight {
+    from{
+        height: 50px;
+    }to{
+        height: 100%;
+    }
+}
+@keyframes collapseWidth {
+    from{
+        width: 100%;
+        right: 0;
+    }to{
+        width: 50px;
+        right: 40px;
+    }
+}
+@keyframes collapseHeight {
+    from{
+        height: 100%;
+    }to{
+        height: 50px;
+    }
+}

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+:root{
+    --bright-orange: #F2613F;
+    --mid-orange: #9B3922;
+    --dark-orange: #481E14;
+    --black: #0C0C0C;
+    --white: #e7e5e4;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    color: var(--white);
+}
+h3{
+    font-size: min(8rem, 15vw);
+}
+h4{
+    font-size: 3rem;
+}
